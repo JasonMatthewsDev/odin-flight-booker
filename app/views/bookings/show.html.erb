@@ -1,0 +1,9 @@
+<h1>Flight Booked</h1>
+
+<h4><%= "#{@booking.flight.from_airport.code} -> #{@booking.flight.to_airport.code} \
+        At #{@booking.flight.date} For #{@booking.flight.duration}hrs" %></h4>
+
+<h4>Passenger List:</h4>
+<% @booking.passengers.each_with_index do |p, i| %>
+  <%= content_tag :p, "#{i}: #{p.name} - #{p.email}" %>
+<% end %>

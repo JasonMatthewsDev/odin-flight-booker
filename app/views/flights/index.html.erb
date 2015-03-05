@@ -1,0 +1,24 @@
+<div>
+  <%= form_tag(flights_path, method: :get) do %>
+    <%= select_tag :from, options_for_select(@airports),  prompt: "From" %>
+    <%= select_tag :to, options_for_select(@airports),  prompt: "To" %>
+    <%= select_tag :passenger_count, options_for_select(@passenger_count), prompt: 'Passengers' %>
+    <%= select_tag :date, options_for_select(@dates), prompt: 'Date' %>
+    <%= submit_tag 'Search' %>
+  <% end %>  
+</div>
+
+<div>
+  <% if @flights %>
+    <div>
+      <%= form_tag bookings_new_path, method: :get do %>
+        <%= hidden_field_tag(:passenger_count, params[:passenger_count]) %>
+        <% @flights.each do |r| %>
+          <%= radio_button_tag(:flight_id, r.id) %>
+          <%= label_tag("flight_id_#{r.id}", "#{r.from_airport.code} -> #{r.to_airport.code} #{r.date}") %><br />
+        <% end %>
+        <%= submit_tag 'Select' %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

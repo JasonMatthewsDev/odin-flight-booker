@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  depart_id: 1
+  destination_id: 1
+  start: 2015-02-28 00:16:05
+  duration: 1
+
+two:
+  depart_id: 1
+  destination_id: 1
+  start: 2015-02-28 00:16:05
+  duration: 1

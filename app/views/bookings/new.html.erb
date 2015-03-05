@@ -1,0 +1,18 @@
+<h1><%= "#{@flight.from_airport.code} to #{@flight.to_airport.code}" %></h1>
+<h4><%= "Flight number: #{@flight.id} Date/Time: #{@flight.date} Duration: #{@flight.duration}" %></h4>
+
+<%= @booking.passengers.length %>
+
+<%= form_for @booking do |f| %>
+  <%= f.hidden_field :flight_id, value: @flight.id %>
+	
+  <%= f.fields_for :passengers do |p| %>
+      <%= p.label :name %>
+    	<%= p.text_field :name  %>
+    	<%= p.label :email %>
+      <%= p.text_field :email %>
+      <br />
+  <% end %>
+
+  <%= f.submit "Book It!" %>
+<% end %>
